@@ -4,8 +4,9 @@ import Layout from '../layouts/Layout.astro';
 import Home from '../components/Home.jsx';
 import AboutMe from '../components/AboutMe.jsx';
 import Work from '../components/Portfolio';
-import Skills from '../components/Skills.jsx'
-import Experience from '../components/Experience.jsx'
+import Skills from '../components/Skills.jsx';
+import Experience from '../components/Experience.jsx';
+import Contact from '../components/Contact.jsx';
 ---
 
 <Layout title="Portafolio">
@@ -26,5 +27,8 @@ import Experience from '../components/Experience.jsx'
 	</div>
 	<div class="mt-20">
 		<Experience client:visible/>
+	</div>
+	<div class="mt-20">
+		<Contact client:visible/>
 	</div>
 </Layout>

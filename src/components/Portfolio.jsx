@@ -73,21 +73,6 @@ export default function Portfolio () {
                         </div>
                     ))
                 }
-               
-                {/* <div className="w-[400px] h-96 rounded-lg border-2 border-[#2BB8E4] p-6 overflow-hidden">
-                    <label className="text-white text-lg font-bold"> Portafolio </label>
-                    <p className="text-white font-thin mt-2">
-                        Proyecto realizado con React JS y Astro para mostrar un poco sobre mi y los trabajos que he realizado.
-                    </p>
-                    <div className="mt-5">
-                        <TagTittle tittle="React JS"/>
-                        <TagTittle tittle="Astro"/>
-                    </div>
-                    <img 
-                        src='../../portfolio.png'
-                        className="mt-9"
-                    />
-                </div> */}
             </section>
         </motion.article>
     )
