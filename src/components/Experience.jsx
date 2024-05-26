@@ -37,6 +37,7 @@ const Skills = () => {
         visible: { opacity: 1, y: 0 },
       }}
       className="w-full h-auto flex flex-col items-center"
+      id="experience"
     >
       <TagTittle  tittle="💼 Carrera"/>
       <h1 className="text-6xl mt-5 text-white font-bold">Experiencia laboral</h1>

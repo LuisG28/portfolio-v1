@@ -35,6 +35,7 @@ export default function Portfolio () {
                 visible: { opacity: 1, y: 0 },
             }}
             className="w-full h-auto"
+            id="projects"
         >
             <div className="w-48">
                 <TagTittle tittle="📎  Portafolio"/>

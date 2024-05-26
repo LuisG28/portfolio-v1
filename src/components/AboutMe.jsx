@@ -13,6 +13,7 @@ export default function AboutMe () {
                 visible: { opacity: 1, y: 0 },
             }}
             className="w-full flex flex-row justify-center space-x-64"
+            id="about"
         >
             <img 
                 src={'../../avatar.jpeg'}

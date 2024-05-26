@@ -14,7 +14,7 @@ export default function Header () {
             }}
             className="w-full h-auto flex flex-row justify-center space-x-64"
         >
-            <section className="h-auto w-96 flex flex-col justify-center">
+            <section className="h-auto w-96 flex flex-col justify-center" id="home">
                 <div className="w-44">
                     <TagTittle tittle={'👋  Saludos!'}/>
                 </div>
