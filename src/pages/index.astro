@@ -1,0 +1,30 @@
+---
+import Header from '../components/Header.astro';
+import Layout from '../layouts/Layout.astro';
+import Home from '../components/Home.jsx';
+import AboutMe from '../components/AboutMe.jsx';
+import Work from '../components/Portfolio';
+import Skills from '../components/Skills.jsx'
+import Experience from '../components/Experience.jsx'
+---
+
+<Layout title="Portafolio">
+	<div class="mt-10">
+		<Header/>
+	</div>
+	<div class="mt-10">
+		<Home client:visible/>
+	</div>
+	<div class="mt-10">
+		<AboutMe client:visible/>
+	</div>
+	<div class="mt-20">
+		<Work client:visible/>
+	</div>
+	<div class="mt-20">
+		<Skills client:visible/>
+	</div>
+	<div class="mt-20">
+		<Experience client:visible/>
+	</div>
+</Layout>
