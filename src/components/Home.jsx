@@ -12,9 +12,9 @@ export default function Header () {
                 hidden: { opacity: 0, y: 50 }, 
                 visible: { opacity: 1, y: 0 },
             }}
-            className="w-full h-auto flex flex-row justify-center space-x-64"
+            className="w-full h-auto flex flex-col lg:flex-row justify-center items-center lg:space-x-64"
         >
-            <section className="h-auto w-96 flex flex-col justify-center" id="home">
+            <section className="h-auto w-96 flex flex-col justify-center items-center lg:items-baseline space-y-1 lg:space-x-0" id="home">
                 <div className="w-44">
                     <TagTittle tittle={'👋  Saludos!'}/>
                 </div>
@@ -34,7 +34,7 @@ export default function Header () {
             <img 
                 src={'../../avatar.jpeg'}
                 alt="avatar image" 
-                className='rounded-full' 
+                className='rounded-full w-40 h-40 lg:h-auto lg:w-auto mt-5 lg:mt-0' 
                 loading="lazy"
             />
         </motion.article>
