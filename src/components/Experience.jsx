@@ -40,11 +40,11 @@ const Skills = () => {
       id="experience"
     >
       <TagTittle  tittle="💼 Carrera"/>
-      <h1 className="text-6xl mt-5 text-white font-bold">Experiencia laboral</h1>
+      <h1 className="lg:text-6xl text-2xl mt-5 text-white font-bold">Experiencia laboral</h1>
       <ol className="mt-10">
         {
           jobs.map((item, index)=> (
-            <li key={index} className={`border-l-2 ${item.isActual ?  'border-[#2BB8E4]' : 'border-purple-600'}`}>
+            <li key={index} className={`border-l-2 lg:mt-0 mt-[-35px] ${item.isActual ?  'border-[#2BB8E4]' : 'border-purple-600'}`}>
               <div className="md:flex flex-start">
                 <div className={"${item.isActual ?  'border-[#2BB8E4]' : 'border-purple-600'} w-6 h-6 flex items-center justify-center rounded-full -ml-3.5"}>
                   <svg aria-hidden="true" focusable="false" data-prefix="fas" className="text-white w-3 h-3" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
