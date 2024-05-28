@@ -16,8 +16,8 @@ const Skills = () => {
       id="skills"
     >
       <TagTittle  tittle="👨‍💻 Habilidades"/>
-      <h1 className="text-6xl mt-5 text-white font-bold">Técnologias y habilidades</h1>
-      <span className="text-white opacity-50 mt-20 text-2xl">Técnologías que uso día a día</span>
+      <h1 className="lg:text-6xl text-2xl text-white font-bold mt-5 lg:mt-0">Técnologias y habilidades</h1>
+      <span className="text-white opacity-50 lg:mt-20 mt-10 text-2xl">Técnologías que uso día a día</span>
       <div className="mt-10 w-full h-auto flex flex-row items-center justify-center">
         <i className="fa-brands fa-react text-secondarytext-6xl mr-8 cursor-pointer"/>
         <i className="fa-brands fa-js text-secondary text-6xl mr-8 cursor-pointer" />
@@ -27,7 +27,7 @@ const Skills = () => {
         <i className="fa-brands fa-html5 text-secondary text-6xl mr-8 cursor-pointer" />
         <i className="fa-brands fa-css3-alt text-secondary text-6xl mr-8 cursor-pointer" />
       </div>
-      <span className="text-white opacity-50 mt-20 text-2xl">Otras técnologias con las que he trabajado</span>
+      <span className="text-white opacity-50 lg:mt-20 mt-10 text-2xl">Otras técnologias con las que he trabajado</span>
       <div className="mt-10 w-full h-auto flex flex-row items-center justify-center">
         <i className="fa-brands fa-docker text-secondary text-6xl mr-8 cursor-pointer"/>
         <i className="fa-brands fa-aws text-secondary text-6xl mr-8 cursor-pointer" />
