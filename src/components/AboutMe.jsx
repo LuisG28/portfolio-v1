@@ -22,7 +22,7 @@ export default function AboutMe () {
                 loading="lazy"
                 
             />
-            <section className="h-auto flex flex-col justify-center items-center lg:items-stretch lg:w-4/6 space-y-2 w-full lg:p-0 px-10">
+            <section className="h-auto flex flex-col justify-center items-center lg:items-stretch lg:w-4/6 lg:space-y-2 w-full lg:p-0 px-10 space-y-5">
                 <div className="w-44">
                     <TagTittle tittle="🧐 Sobre mi"/>
                 </div>

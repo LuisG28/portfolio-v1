@@ -34,13 +34,13 @@ export default function Portfolio () {
                 hidden: { opacity: 0, y: 50 }, 
                 visible: { opacity: 1, y: 0 },
             }}
-            className="w-full h-auto"
+            className="w-full h-auto flex flex-col"
             id="projects"
         >
             <div className="w-48">
                 <TagTittle tittle="📎  Portafolio"/>
             </div>
-            <section className="w-full pt-5 flex flex-row justify-between">
+            <section className="w-full pt-5 flex lg:flex-row flex-col justify-between ">
                 <h1 className="text-6xl text-white font-bold">Trabajos y proyectos</h1>
                 <div className="space-x-5 flex flex-row">
                     <div  className="border-primary hover:bg-primary border-2 w-64 h-16 px-2 py-1 rounded-lg cursor-pointer flex flex-row items-center justify-center">
