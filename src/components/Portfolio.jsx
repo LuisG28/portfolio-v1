@@ -8,11 +8,9 @@ export default function Portfolio () {
             description : 'Proyecto realizado con el fin de mostrar mi experiencia en el mundo del desarrollo usando diferentes técnologías para realizar aplicaciones web y moviles',
             tecnologies : [
                 'Astro',
-                'React JS',
-                'Tailwind css',
             ],
             type : 'web',
-            image : '../../portfolio.png',
+            image : '/portfolio-v1/portfolio.png',
         },
         {
             name : 'Nu clon',
@@ -21,7 +19,7 @@ export default function Portfolio () {
                 'Flutter',
             ],
             type : 'mobile',
-            image : '../../portfolio.png',
+            image : '/portfolio-v1//portfolio.png',
         },
     ]
     return (
@@ -56,7 +54,7 @@ export default function Portfolio () {
                     projects.map((item, index) => (
                         <div key={index} className="w-[400px] h-96 rounded-lg border-2 border-tertiary p-6 overflow-hidden">
                             <label className="text-white text-lg font-bold"> {item.name} </label>
-                            <p className="text-white font-thin mt-2">
+                            <p className="text-white font-thin mt-2 h-20">
                                 {item.description}
                             </p>
                             <div className="mt-5 space-x-5 max-w-40">
@@ -67,10 +65,12 @@ export default function Portfolio () {
                                 }
                                
                             </div>
-                            <img 
-                                src={item.image}
-                                className="mt-9"
-                            />
+                            <div className="w-full flex justify-center">
+                                <img 
+                                    src={item.image}
+                                    className="mt-9 h-32"
+                                />
+                            </div>
                         </div>
                     ))
                 }

@@ -32,7 +32,7 @@ export default function Header () {
                 </button>
             </section>
             <img 
-                src={'../../avatar.jpeg'}
+                src={'/portfolio-v1/avatar.jpeg'}
                 alt="avatar image" 
                 className='rounded-full w-40 h-40 lg:h-auto lg:w-auto mt-5 lg:mt-0' 
                 loading="lazy"
