@@ -42,7 +42,7 @@ export default function Portfolio () {
             </div>
             <section className="w-full pt-5 flex lg:flex-row flex-col lg:justify-between items-center">
                 <h1 className="lg:text-6xl text-2xl text-white font-bold">Trabajos y proyectos</h1>
-                <div className="flex flex-col lg:flex-row lg:mt-0 mt-5 lg:items-stretch items-center space-y-5 lg:space-y-0">
+                <div className="flex flex-col lg:flex-row lg:mt-0 mt-5 lg:items-stretch items-center space-y-5 lg:space-y-0 lg:space-x-5">
                     <div  className="border-primary hover:bg-primary border-2 w-64 h-16 px-2 py-1 rounded-lg cursor-pointer flex flex-row items-center justify-center">
                         <span className="text-white hover:text-white text-lg font-thin"> <i className="fa-regular fa-window-maximize mr-3" /> Aplicaciones web</span>
                     </div>
