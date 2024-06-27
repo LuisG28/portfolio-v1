@@ -16,7 +16,7 @@ const Contact = () => {
           Correo
         </a>
       </div>
-      <a href="#header" className="text-secondary h-16 rounded-lg text-lg hover:text-tertiary hover:text-lg px-6 py-3 my-2 flex items-center self-center">
+      <a href="#header" className="text-secondary hidden lg:flex h-16 rounded-lg text-lg hover:text-tertiary hover:text-lg px-6 py-3 my-2 items-center self-center">
         Volver al inicio
         <i className="fa-solid fa-arrow-up ml-3" /> 
       </a>

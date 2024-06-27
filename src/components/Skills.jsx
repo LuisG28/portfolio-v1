@@ -18,7 +18,7 @@ const Skills = () => {
       <TagTittle  tittle="👨‍💻 Habilidades"/>
       <h1 className="lg:text-6xl text-2xl text-white font-bold mt-5 lg:mt-0">Técnologias y habilidades</h1>
       <span className="text-white opacity-50 lg:mt-20 mt-10 text-2xl">Técnologías que uso día a día</span>
-      <div className="mt-10 w-full h-auto flex flex-row items-center justify-center">
+      <div className="mt-10 w-full h-auto flex flex-row items-center justify-center overflow-x-auto overscroll-x-contain scrollbar-hide overflow-y-hidden">
         <i className="fa-brands fa-react text-secondarytext-6xl mr-8 cursor-pointer"/>
         <i className="fa-brands fa-js text-secondary text-6xl mr-8 cursor-pointer" />
         <i className="fa-brands fa-node-js text-secondary text-6xl mr-8 cursor-pointer" />
@@ -27,8 +27,8 @@ const Skills = () => {
         <i className="fa-brands fa-html5 text-secondary text-6xl mr-8 cursor-pointer" />
         <i className="fa-brands fa-css3-alt text-secondary text-6xl mr-8 cursor-pointer" />
       </div>
-      <span className="text-white opacity-50 lg:mt-20 mt-10 text-2xl">Otras técnologias con las que he trabajado</span>
-      <div className="mt-10 w-full h-auto flex flex-row items-center justify-center">
+      <span className="text-white opacity-50 lg:mt-20 mt-10 text-2xl ">Otras técnologias con las que he trabajado</span>
+      <div className="mt-10 w-full h-auto flex flex-row items-center justify-center overflow-x-auto overscroll-x-contain scrollbar-hide overflow-y-hidden pl-80 lg:pl-0">
         <i className="fa-brands fa-docker text-secondary text-6xl mr-8 cursor-pointer"/>
         <i className="fa-brands fa-aws text-secondary text-6xl mr-8 cursor-pointer" />
         <i className="fa-solid fa-database text-secondary text-6xl mr-8 cursor-pointer" />
