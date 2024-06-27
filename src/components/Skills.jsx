@@ -1,5 +1,6 @@
 import { motion } from "framer-motion"
 import TagTittle from "./TagTittle"
+import { mainTechnologies, secondaryTechnologies } from '../utils/contanst';
 
 const Skills = () => {
   return (
@@ -16,26 +17,23 @@ const Skills = () => {
       id="skills"
     >
       <TagTittle  tittle="👨‍💻 Habilidades"/>
-      <h1 className="lg:text-6xl text-2xl text-white font-bold mt-5 lg:mt-0">Técnologias y habilidades</h1>
-      <span className="text-white opacity-50 lg:mt-20 mt-10 text-2xl">Técnologías que uso día a día</span>
+      <h1 className="lg:text-6xl text-2xl text-white font-bold pt-5 lg:mt-0">Técnologias y habilidades</h1>
+      <span className="text-white opacity-50 lg:mt-10 mt-5 text-2xl">Técnologías que uso día a día</span>
       <div className="mt-10 w-full h-auto flex flex-row items-center justify-center overflow-x-auto overscroll-x-contain scrollbar-hide overflow-y-hidden">
         <i className="fa-brands fa-react text-secondarytext-6xl mr-8 cursor-pointer"/>
-        <i className="fa-brands fa-js text-secondary text-6xl mr-8 cursor-pointer" />
-        <i className="fa-brands fa-node-js text-secondary text-6xl mr-8 cursor-pointer" />
-        <i className="fa-brands fa-github text-secondary text-6xl mr-8 cursor-pointer" />
-        <i className="fa-brands fa-git-alt text-secondary text-6xl mr-8 cursor-pointer" />
-        <i className="fa-brands fa-html5 text-secondary text-6xl mr-8 cursor-pointer" />
-        <i className="fa-brands fa-css3-alt text-secondary text-6xl mr-8 cursor-pointer" />
+        {
+          mainTechnologies.map((item, index)=> (
+            <i className={`${item} text-secondary text-6xl mr-8 cursor-pointer`} key={index} />
+          ))
+        }
       </div>
       <span className="text-white opacity-50 lg:mt-20 mt-10 text-2xl ">Otras técnologias con las que he trabajado</span>
       <div className="mt-10 w-full h-auto flex flex-row items-center justify-center overflow-x-auto overscroll-x-contain scrollbar-hide overflow-y-hidden pl-80 lg:pl-0">
-        <i className="fa-brands fa-docker text-secondary text-6xl mr-8 cursor-pointer"/>
-        <i className="fa-brands fa-aws text-secondary text-6xl mr-8 cursor-pointer" />
-        <i className="fa-solid fa-database text-secondary text-6xl mr-8 cursor-pointer" />
-        <i className="fa-solid fa-feather-pointed text-secondary text-6xl mr-8 cursor-pointer" />
-        <i className="fa-brands fa-linux text-secondary text-6xl mr-8 cursor-pointer" />
-        <i className="fa-brands fa-android text-secondary text-6xl mr-8 cursor-pointer" />
-        <i className="fa-brands fa-apple text-secondary text-6xl mr-8 cursor-pointer" />
+        {
+          secondaryTechnologies.map((item, index) => (
+            <i className={` ${item} text-secondary text-6xl mr-8 cursor-pointer`} key={index}/>
+          ))
+        }
       </div>
     </motion.article>
   )

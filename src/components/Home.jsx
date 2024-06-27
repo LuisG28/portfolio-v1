@@ -18,7 +18,7 @@ export default function Header () {
                 <div className="w-44">
                     <TagTittle tittle={'👋  Saludos!'}/>
                 </div>
-                <label className="lg:text-6xl text-2xl text-white font-bold w-auto">Luis Gustavo</label>
+                <label className="lg:text-6xl text-2xl text-white font-bold w-auto pt-5">Luis Gustavo</label>
                 <span className="text-white font-thin opacity-50">Full Stack Developer</span>
                 <div className="space-x-1">
                     <a href="https://github.com/LuisG28" target="_blank" className="fab fa-github text-2xl text-gray-500 cursor-pointer hover:text-white"/>
