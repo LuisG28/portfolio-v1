@@ -1,5 +1,6 @@
 import { motion } from "framer-motion"
 import TagTittle from "./TagTittle"
+import ProjectCard from "./ProjectCard"
 
 export default function Portfolio () {
     const projects = [
@@ -38,40 +39,11 @@ export default function Portfolio () {
             <div className="w-48">
                 <TagTittle tittle="📎  Portafolio"/>
             </div>
-            <section className="w-full pt-5 flex lg:flex-row flex-col lg:justify-between items-center">
-                <h1 className="lg:text-6xl text-2xl text-white font-bold">Trabajos y proyectos</h1>
-                <div className="flex flex-col lg:flex-row lg:mt-0 mt-5 lg:items-stretch items-center space-y-5 lg:space-y-0 lg:space-x-5">
-                    <div  className="border-primary hover:bg-primary border-2 w-64 h-16 px-2 py-1 rounded-lg cursor-pointer flex flex-row items-center justify-center">
-                        <span className="text-white hover:text-white text-lg font-thin"> <i className="fa-regular fa-window-maximize mr-3" /> Aplicaciones web</span>
-                    </div>
-                    <div  className="border-primary hover:bg-primary border-2 w-64 h-16 px-2 py-1 rounded-lg cursor-pointer flex flex-row items-center justify-center">
-                        <span className="text-white hover:text-white text-lg font-thin"> <i className="fa-solid fa-mobile-button mr-3" /> Aplicaciones moviles</span>
-                    </div>
-                </div>
-            </section>
-            <section className="w-full mt-16 flex flex-row space-x-9">
-                {
+            <h1 className="lg:text-6xl text-2xl text-white font-bold mt-5">Trabajos y proyectos</h1>
+            <section className="w-full mt-5 flex flex-row space-x-9 overflow-x-auto overscroll-x-contain scrollbar-hide overflow-y-hidden">
+                { 
                     projects.map((item, index) => (
-                        <div key={index} className="w-[400px] h-96 rounded-lg border-2 border-tertiary p-6 overflow-hidden">
-                            <label className="text-white text-lg font-bold"> {item.name} </label>
-                            <p className="text-white font-thin mt-2 h-20">
-                                {item.description}
-                            </p>
-                            <div className="mt-5 space-x-5 max-w-40">
-                                {
-                                    item.tecnologies.map(oTecnology => (
-                                        <TagTittle key={index} tittle={oTecnology}/>
-                                    ))
-                                }
-                               
-                            </div>
-                            <div className="w-full flex justify-center">
-                                <img 
-                                    src={item.image}
-                                    className="mt-9 h-32"
-                                />
-                            </div>
-                        </div>
+                        <ProjectCard key={index} item={item} />
                     ))
                 }
             </section>
