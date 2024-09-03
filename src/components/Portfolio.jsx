@@ -2,26 +2,33 @@ import { motion } from "framer-motion"
 import TagTittle from "./TagTittle"
 import ProjectCard from "./ProjectCard"
 
+const TAGS = {
+    ASTRO: {
+      name: "Astro.js",
+      style: "bg-primary text-white",
+      icon: '/portfolio-v1/icons/AstroSVG.svg',
+    },
+    TAILWIND: {
+      name: "Tailwind CSS",
+      style: "bg-[#003159] text-white",
+      icon: "/portfolio-v1/icons/Tailwind.svg",
+    },
+}
+
 export default function Portfolio () {
+ 
     const projects = [
         {
             name : 'Portafolio',
             description : 'Proyecto realizado con el fin de mostrar mi experiencia en el mundo del desarrollo usando diferentes técnologías para realizar aplicaciones web y moviles',
-            tecnologies : [
-                'Astro',
+            technologies : [
+                TAGS.TAILWIND,
+                TAGS.ASTRO
             ],
             type : 'web',
             image : '/portfolio-v1/portfolio.png',
-        },
-        {
-            name : 'Nu clon',
-            description : 'Clon de la pantalla de inicio de la aplicación Nu',
-            tecnologies : [
-                'Flutter',
-            ],
-            type : 'mobile',
-            image : '/portfolio-v1//portfolio.png',
-        },
+            repo: 'https://github.com/LuisG28/portfolio-v1',
+        }
     ]
     return (
         <motion.article 
