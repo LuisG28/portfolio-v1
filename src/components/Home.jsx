@@ -24,12 +24,12 @@ export default function Header () {
                     <a href="https://github.com/LuisG28" target="_blank" className="fab fa-github text-2xl text-gray-500 cursor-pointer hover:text-white"/>
                     <a href="https://www.linkedin.com/in/luis-gustavo-cruz-rosales-1383351a1/" target="_blank" className="fa-brands fa-linkedin text-2xl text-gray-500 cursor-pointer hover:text-white"/>
                 </div>
-                <button className="text-white border-tertiary w-48 group border-2 px-6 py-3 my-2 flex hover:text-base items-center hover:bg-tertiary hover:border-tertiary">
+                <a href="/portfolio-v1/Curriculum.pdf" download="Mi_CV.pdf" className="text-white border-tertiary w-48 group border-2 px-6 py-3 my-2 flex hover:text-base items-center hover:bg-tertiary hover:border-tertiary">
                     Descargar CV
                     <span className="group-hover:rotate-90 duration-300">
                     <i className="fa-solid fa-arrow-right ml-5"/>
                     </span>
-                </button>
+                </a>
             </section>
             <img 
                 src={'/portfolio-v1/avatar.jpeg'}
