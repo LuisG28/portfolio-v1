@@ -1,7 +1,8 @@
 import { motion } from "framer-motion"
 import TagTittle from "./TagTittle"
 
-export default function Header () {
+
+export default function Heade({ dataLanguage }) {
     return (
         <motion.article 
             initial="hidden" 
@@ -16,7 +17,7 @@ export default function Header () {
         >
             <section className="h-auto w-96 flex flex-col justify-center items-center lg:items-baseline space-y-1 lg:space-x-0" id="home">
                 <div className="w-44">
-                    <TagTittle tittle={'👋  Saludos!'}/>
+                    <TagTittle tittle={dataLanguage.hi}/>
                 </div>
                 <label className="lg:text-6xl text-2xl text-white font-bold w-auto pt-5">Luis Gustavo</label>
                 <span className="text-white font-thin opacity-50">Full Stack Developer</span>
@@ -25,16 +26,16 @@ export default function Header () {
                     <a href="https://www.linkedin.com/in/luis-gustavo-cruz-rosales-1383351a1/" target="_blank" className="fa-brands fa-linkedin text-2xl text-gray-500 cursor-pointer hover:text-white"/>
                 </div>
                 <a href="/portfolio-v1/LuisGustavoCruzCV.pdf" download="LuisGustavoCruzCV.pdf" className="text-white border-tertiary w-48 group border-2 px-6 py-3 my-2 flex hover:text-base items-center hover:bg-tertiary hover:border-tertiary">
-                    Descargar CV
+                    {dataLanguage.resume}
                     <span className="group-hover:rotate-90 duration-300">
                     <i className="fa-solid fa-arrow-right ml-5"/>
                     </span>
                 </a>
             </section>
             <img 
-                src={'/portfolio-v1/avatar.jpeg'}
+                src={'/portfolio-v1/avatar.png'}
                 alt="avatar image" 
-                className='rounded-full w-40 h-40 lg:h-auto lg:w-auto mt-5 lg:mt-0' 
+                className='rounded-full w-40 h-40 lg:h-72 lg:w-72 mt-5 lg:mt-0' 
                 loading="lazy"
             />
         </motion.article>

@@ -1,0 +1,74 @@
+{
+    "language": "es",
+    "welcome": "Welcome to our website",
+    "description": "This is an example of a multilingual website",
+    "home": "Home",
+    "aboutMe": "About me",
+    "projects": "Projects",
+    "skills": "Skills",
+    "experience": "Experience",
+    "contact": "Contact",
+    "hi": "👋  Hi!",
+    "resume": "Resume",
+    "presentationName": "My name is Luis Gustavo Cruz Rosalez, but you can simply call me Gustavo, a pleasure to meet you!",
+    "presentationJob": "I have been working as a full stack developer for over 3 years.",
+    "presentationUniversity": "Graduate in Information and Communication Technologies from the Technological University of Xicotepec de Juárez.",
+    "presentationInterest": "Interested in web and mobile application development.",
+    "portfolio": "Portfolio",
+    "portfolioTittle": "Work and Projects",
+    "projectsList" : [
+        {
+            "name" : "Portfolio",
+            "description" : "Project created to showcase my experience in the world of development using different technologies to build web and mobile applications",
+            "type" : "web",
+            "image" : "/portfolio-v1/portfolio.png",
+            "repo": "https://github.com/LuisG28/portfolio-v1",
+            "technologies" : [
+                {
+                    "name": "Astro.js",
+                    "style": "bg-primary text-white",
+                    "icon": "/portfolio-v1/icons/AstroSVG.svg"
+                },
+                {
+                    "name": "Tailwind CSS",
+                    "style": "bg-[#003159] text-white",
+                    "icon": "/portfolio-v1/icons/Tailwind.svg"
+                }
+            ]
+        }
+    ],
+    "technologies": "Technologies",
+    "repoDescription": "View repository",
+    "skillsTittle": "Technologies and skills",
+    "skillsUse": "Technologies I use every day",
+    "skillsWorked" : "Other technologies I have worked with",
+    "path": "Career",
+    "experienceTittle": "Work Experience",
+    "jobs": [
+        {
+            "name": "Full Stack Developer at TRIPLEI",
+            "description": "Development of functionalities in web applications using React.js, JavaScript, and Bootstrap, as well as other technologies like Postman and Styled Components.",
+            "duration": "1 year and 8 months",
+            "dates": "October 2022 - Present",
+            "isActual": true
+        },
+        {
+            "name": "Web and Mobile Applications Developer at Hybrido Studio",
+            "description": "Development of web and mobile applications for client management and reporting using technologies like React.js, React Native, Feather.js, and PostgreSQL.",
+            "duration": "2 years and 8 months",
+            "dates": "September 2020 - April 2023",
+            "isActual": false
+        },
+        {
+            "name": "Web Developer at SW Plus",
+            "description": "Development of functionalities such as user and client management, report creation, and issue resolution using ASP.NET, JavaScript, Ajax, and AngularJS.",
+            "duration": "8 months",
+            "dates": "May 2019 - December 2019",
+            "isActual": false
+        }
+    ],
+    "contactMe": "Contact me",
+    "letsChat": "Let's chat!",
+    "email": "Email",
+    "back": "Back to the start" 
+}

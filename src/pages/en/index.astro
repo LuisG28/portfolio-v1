@@ -1,0 +1,40 @@
+---
+import Header from '../../components/Header.astro';
+import Layout from '../../layouts/Layout.astro';
+import Home from '../../components/Home.jsx';
+import AboutMe from '../../components/AboutMe.jsx';
+import Work from '../../components/Portfolio';
+import Skills from '../../components/Skills.jsx';
+import Experience from '../../components/Experience.jsx';
+import Contact from '../../components/Contact.jsx';
+import Footer from '../../components/Footer.astro';
+import dataEnglish from '../../../public/locales/translationEnglish.json';
+---
+
+<Layout 
+	title="Luis G - Full stack Developer"
+	description="Portafolio Luis Gustavo, programador web y movil."
+>
+	<div class="lg:mt-10 sm:mt-0 flex justify-center">
+		<Header data={dataEnglish}/>
+	 </div>
+	<div class="lg:mt-20 mt-5">
+		<Home client:visible dataLanguage={dataEnglish}/>
+	</div>
+	<div class="lg:mt-20 mt-10 lg:px-0 px-10">
+		<AboutMe client:visible dataLanguage={dataEnglish} />
+	</div>
+	<div class="lg:mt-20 mt-10 lg:px-0 px-10">
+		<Work client:visible dataLanguage={dataEnglish} />
+	</div>
+	<div class="lg:mt-20 mt-10 lg:px-0 px-10">
+		<Skills client:visible dataLanguage={dataEnglish} />
+	</div>
+	<div class="lg:mt-20 mt-10 lg:px-0 px-10">
+		<Experience client:visible dataLanguage={dataEnglish} />
+	</div>
+	<div class="lg:mt-20 mt-10 lg:px-0 px-10">
+		<Contact client:visible dataLanguage={dataEnglish}/>
+	</div>
+	<Footer/>
+</Layout>

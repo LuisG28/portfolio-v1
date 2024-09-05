@@ -15,7 +15,7 @@ const TAGS = {
     },
 }
 
-export default function Portfolio () {
+export default function Portfolio ({ dataLanguage }) {
  
     const projects = [
         {
@@ -44,13 +44,13 @@ export default function Portfolio () {
             id="projects"
         >
             <div className="w-48">
-                <TagTittle tittle="📎  Portafolio"/>
+                <TagTittle tittle={`📎 ${dataLanguage.portfolio}`}/>
             </div>
-            <h1 className="lg:text-6xl text-2xl text-white font-bold mt-5">Trabajos y proyectos</h1>
+            <h1 className="lg:text-6xl text-2xl text-white font-bold mt-5">{dataLanguage.portfolioTittle}</h1>
             <section className="w-full mt-5 flex flex-row space-x-9 overflow-x-auto overscroll-x-contain scrollbar-hide overflow-y-hidden">
                 { 
-                    projects.map((item, index) => (
-                        <ProjectCard key={index} item={item} />
+                    dataLanguage.projectsList.map((item, index) => (
+                        <ProjectCard key={index} item={item} dataLanguage={dataLanguage}/>
                     ))
                 }
             </section>

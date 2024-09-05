@@ -1,10 +1,23 @@
+---
+    import { getRelativeLocaleUrl } from 'astro:i18n';
+
+    interface Props {
+        data: any;
+    }
+    const { data } = Astro.props;
+---
+
 <header id="header" class="w-[700px] h-14 hidden bg-secondary lg:flex flex-row z-10 lg:rounded-lg">
     <ul class="lg w-full flex-row space-x-5 lg:flex items-center justify-center">
-        <a href="#home" class="text-base font-bold cursor-pointer">Inicio</a>
-        <a href="#about" class="text-base font-semibold cursor-pointer">Sobre mi</a>
-        <a href="#projects" class="text-base font-semibold cursor-pointer">Proyectos</a>
-        <a href="#skills" class="text-base font-semibold cursor-pointerr">Habilidades</a>
-        <a href="#experience" class="text-base font-semibold cursor-pointerr">Experiencia</a>
-        <a href="#contact" class="text-base font-semibold cursor-pointer">Contacto</a>
+        <a href="#home" class="text-base font-bold cursor-pointer">{data.home}</a>
+        <a href="#about" class="text-base font-semibold cursor-pointer">{data.aboutMe}</a>
+        <a href="#projects" class="text-base font-semibold cursor-pointer">{data.projects}</a>
+        <a href="#skills" class="text-base font-semibold cursor-pointerr">{data.skills}</a>
+        <a href="#experience" class="text-base font-semibold cursor-pointerr">{data.experience}</a>
+        <a href="#contact" class="text-base font-semibold cursor-pointer">{data.contact}</a>
+        <a href={getRelativeLocaleUrl(data.language, '/')}} class="text-base font-semibold cursor-pointer">
+            <i class="fa-solid fa-language cursor-pointer" /> { data.language === 'en' ? "Ingles" : "Spanish" }
+        </a>
+       
     </ul>
 </header>

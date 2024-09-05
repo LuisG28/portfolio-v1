@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const ProjectCard = ({ item, index }) => {
+const ProjectCard = ({ item, index, dataLanguage }) => {
   const [isFlipped, setIsFlipped] = useState(false);
 
   const handleFlip = () => {
@@ -19,7 +19,7 @@ const ProjectCard = ({ item, index }) => {
         </div>
         <div className="absolute my-rotate-y-180 backface-hidden w-full h-full overflow-hidden">
           <div className="flex flex-col h-full text-gray-800 pb-24 p-6">
-            <h5 className="text-white text-lg font-bold">Técnologías</h5>
+            <h5 className="text-white text-lg font-bold">{dataLanguage.technologies}</h5>
             <ul className="flex flex-row mb-2 gap-x-2">
               {item.technologies.map((technology, key) => (
                 <li key={key}>
@@ -33,7 +33,7 @@ const ProjectCard = ({ item, index }) => {
               ))}
             </ul>
             <a href={item.repo} target='_blank' className='self-center border-primary hover:bg-primary border-2 w-64 h-16 py-1 rounded-lg cursor-pointer flex flex-row items-center justify-center mt-10'>
-              <span className="text-white hover:text-white text-lg font-thin"> <i className="fab fa-github mr-3" /> Ver repositorio </span>
+              <span className="text-white hover:text-white text-lg font-thin"> <i className="fab fa-github mr-3" /> {dataLanguage.repoDescription} </span>
             </a>
           </div>
         </div>

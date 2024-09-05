@@ -2,7 +2,7 @@ import { motion } from "framer-motion"
 import TagTittle from "./TagTittle"
 import { mainTechnologies, secondaryTechnologies } from '../utils/contanst';
 
-const Skills = () => {
+const Skills = ({ dataLanguage }) => {
   return (
     <motion.article 
       initial="hidden" 
@@ -16,9 +16,9 @@ const Skills = () => {
       className="w-full h-auto flex flex-col items-center"
       id="skills"
     >
-      <TagTittle  tittle="👨‍💻 Habilidades"/>
-      <h1 className="lg:text-6xl text-2xl text-white font-bold pt-5 lg:mt-0">Técnologias y habilidades</h1>
-      <span className="text-white opacity-50 lg:mt-10 mt-5 text-2xl">Técnologías que uso día a día</span>
+      <TagTittle  tittle={`👨‍💻 ${dataLanguage.skills}`}/>
+      <h1 className="lg:text-6xl text-2xl text-white font-bold pt-5 lg:mt-0">{dataLanguage.skillsTittle}</h1>
+      <span className="text-white opacity-50 lg:mt-10 mt-5 text-2xl">{dataLanguage.skillsUse}</span>
       <div className="mt-10 w-full h-auto flex flex-row items-center justify-center overflow-x-auto overscroll-x-contain scrollbar-hide overflow-y-hidden">
         <i className="fa-brands fa-react text-secondarytext-6xl mr-8 cursor-pointer"/>
         {
@@ -27,7 +27,7 @@ const Skills = () => {
           ))
         }
       </div>
-      <span className="text-white opacity-50 lg:mt-20 mt-10 text-2xl ">Otras técnologias con las que he trabajado</span>
+      <span className="text-white opacity-50 lg:mt-20 mt-10 text-2xl ">{dataLanguage.skillsWorked}</span>
       <div className="mt-10 w-full h-auto flex flex-row items-center justify-center overflow-x-auto overscroll-x-contain scrollbar-hide overflow-y-hidden pl-80 lg:pl-0">
         {
           secondaryTechnologies.map((item, index) => (
