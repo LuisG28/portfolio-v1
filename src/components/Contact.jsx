@@ -2,7 +2,6 @@ import React from 'react'
 import TagTittle from './TagTittle'
 
 const Contact = ({ dataLanguage }) => {
-  console.log(dataLanguage)
   return (
     <div id="contact" className="w-full flex flex-col items-center justify-center mb-20">
       <TagTittle  tittle={`☎️ ${dataLanguage.contactMe}`}/>
