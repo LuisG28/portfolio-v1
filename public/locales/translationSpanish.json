@@ -21,7 +21,7 @@
             "name": "portafolio",
             "description": "Proyecto realizado con el fin de mostrar mi experiencia en el mundo del desarrollo usando diferentes técnologías para realizar aplicaciones web y moviles",
             "type": "web",
-            "image": "/portfolio-v1/portfolio.png",
+            "image": "/portfolio-v1/portfolio.webp",
             "repo": "https://github.com/LuisG28/portfolio-v1",
             "technologies": [
                 {
