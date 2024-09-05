@@ -21,7 +21,7 @@
             "name" : "Portfolio",
             "description" : "Project created to showcase my experience in the world of development using different technologies to build web and mobile applications",
             "type" : "web",
-            "image" : "/portfolio-v1/portfolio.png",
+            "image" : "/portfolio-v1/portfolio.webp",
             "repo": "https://github.com/LuisG28/portfolio-v1",
             "technologies" : [
                 {
