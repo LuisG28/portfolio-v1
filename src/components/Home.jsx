@@ -2,7 +2,7 @@ import { motion } from "framer-motion"
 import TagTittle from "./TagTittle"
 
 
-export default function Heade({ dataLanguage }) {
+export default function Home({ dataLanguage }) {
     return (
         <motion.article 
             initial="hidden" 
@@ -23,7 +23,7 @@ export default function Heade({ dataLanguage }) {
                     <a href="https://github.com/LuisG28" target="_blank" className="fab fa-github text-2xl text-gray-500 cursor-pointer hover:text-white"/>
                     <a href="https://www.linkedin.com/in/luis-gustavo-cruz-rosales-1383351a1/" target="_blank" className="fa-brands fa-linkedin text-2xl text-gray-500 cursor-pointer hover:text-white"/>
                 </div>
-                <a href="/portfolio-v1/LuisGustavoCruzCV.pdf" download="LuisGustavoCruzCV.pdf" className="text-white border-tertiary w-auto group border-2 px-6 py-3 my-2 flex hover:text-base items-center hover:bg-tertiary hover:border-tertiary">
+                <a href={dataLanguage.language === "en" ? "/portfolio-v1/LuisGustavoCruzCV.pdf" : "/portfolio-v1/LuisGustavoCruzResume.pdf"} download={dataLanguage.language === "en" ? "LuisGustavoCruzCV.pdf" : "LuisGustavoCruzResume.pdf"} className="text-white border-tertiary w-auto group border-2 px-6 py-3 my-2 flex hover:text-base items-center hover:bg-tertiary hover:border-tertiary">
                     {dataLanguage.resume}
                     <span className="group-hover:rotate-90 duration-300">
                     <i className="fa-solid fa-arrow-right ml-5"/>
