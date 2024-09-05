@@ -1,3 +1,12 @@
+---
+    import { getRelativeLocaleUrl } from 'astro:i18n';
+
+interface Props {
+    data: any;
+}
+const { data } = Astro.props;
+---
+
 <div class="w-full flex justify-center fixed bottom-1 lg:hidden">
     <div id="tab_bar" class="w-[90%] rounded-lg h-16 bg-primary shadow-md flex space-x-8 items-center justify-center">
         <a href="#home">
@@ -11,6 +20,9 @@
         </a>
         <a href="#contact">
             <i class="fa-solid fa-phone text-secondary text-2xl cursor-pointer" />
+        </a>
+        <a href={getRelativeLocaleUrl(data.language, '/')}>
+            <i class="fa-solid fa-language text-secondary text-2xl cursor-pointer" />
         </a>
     </div>
 </div>
