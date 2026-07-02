@@ -1,0 +1,609 @@
+---
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const portfolioPreview = `${base}/portfolio-preview.png`;
+const cvEs = `${base}/CV_LuisGustavoCruz_ES.pdf`;
+const cvEn = `${base}/CV_LuisGustavoCruz_EN.pdf`;
+---
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luis Gustavo Cruz Rosales — Full Stack Developer</title>
+  <meta name="description" content="Portfolio de Luis Gustavo Cruz Rosales, Full Stack Developer con más de 3 años de experiencia." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: #020921;
+      color: #eaf0ff;
+      font-family: 'Sora', sans-serif;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    ::selection { background: #12DEFF; color: #020921; }
+
+    @keyframes floaty {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(40px, -30px) scale(1.08); }
+    }
+    @keyframes floaty2 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(-50px, 40px) scale(1.12); }
+    }
+    @keyframes gridmove {
+      from { background-position: 0 0; }
+      to { background-position: 0 60px; }
+    }
+    @keyframes gradshift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+    @keyframes pulsering {
+      0% { transform: scale(0.9); opacity: 0.7; }
+      70% { transform: scale(1.25); opacity: 0; }
+      100% { opacity: 0; }
+    }
+    @keyframes blink {
+      0%, 49% { opacity: 1; }
+      50%, 100% { opacity: 0; }
+    }
+    @keyframes slidedown {
+      from { opacity: 0; transform: translateY(-12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes drawline {
+      from { transform: scaleY(0); }
+      to { transform: scaleY(1); }
+    }
+    @keyframes dotpop {
+      0% { transform: scale(0); }
+      60% { transform: scale(1.35); }
+      100% { transform: scale(1); }
+    }
+    @keyframes dotring {
+      0% { transform: scale(0.8); opacity: 0.6; }
+      70% { transform: scale(2.1); opacity: 0; }
+      100% { opacity: 0; }
+    }
+
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s cubic-bezier(.2,.7,.2,1), transform 0.7s cubic-bezier(.2,.7,.2,1);
+    }
+    [data-reveal].revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .card-hover { transition: transform 0.3s ease, border-color 0.3s ease !important; }
+    .card-hover:hover { transform: translateY(-6px) !important; border-color: rgba(18,222,255,0.4) !important; }
+
+    .skill-hover { transition: all 0.3s ease !important; }
+    .skill-hover:hover {
+      border-color: rgba(18,222,255,0.45) !important;
+      background: rgba(18,222,255,0.06) !important;
+      transform: translateY(-4px) !important;
+    }
+
+    .cta-hover { transition: transform 0.25s ease, box-shadow 0.25s ease !important; }
+    .cta-hover:hover { transform: translateY(-3px) !important; box-shadow: 0 12px 40px rgba(18,222,255,0.55) !important; }
+
+    .social-hover { transition: all 0.25s ease !important; }
+    .social-hover:hover {
+      border-color: #12DEFF !important;
+      color: #12DEFF !important;
+      background: rgba(18,222,255,0.08) !important;
+      transform: translateY(-3px) !important;
+    }
+
+    .repo-hover { transition: all 0.25s ease !important; }
+    .repo-hover:hover {
+      background: rgba(85,255,158,0.1) !important;
+      box-shadow: 0 0 24px rgba(85,255,158,0.25) !important;
+    }
+
+    .nav-link { transition: color 0.25s ease; }
+    .nav-link:hover { color: #12DEFF !important; }
+
+    #mobile-menu { animation: slidedown 0.25s ease; }
+  </style>
+</head>
+<body>
+<div id="root" style="position: relative; min-height: 100vh; width: 100%; overflow: hidden;">
+
+  <!-- Animated background -->
+  <div style="position: fixed; inset: 0; z-index: 0; pointer-events: none;">
+    <div style="position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(11,81,255,0.22), transparent 70%), radial-gradient(ellipse 50% 50% at 90% 110%, rgba(85,255,158,0.10), transparent 70%);"></div>
+    <div style="position: absolute; inset: -2px; background-image: linear-gradient(rgba(18,222,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(18,222,255,0.05) 1px, transparent 1px); background-size: 60px 60px; mask-image: radial-gradient(ellipse 70% 80% at 50% 20%, #000 30%, transparent 80%); -webkit-mask-image: radial-gradient(ellipse 70% 80% at 50% 20%, #000 30%, transparent 80%); animation: gridmove 12s linear infinite;"></div>
+    <div style="position: absolute; top: 8%; left: -6%; width: 460px; height: 460px; border-radius: 50%; background: radial-gradient(circle, rgba(11,81,255,0.5), transparent 65%); filter: blur(50px); animation: floaty 16s ease-in-out infinite;"></div>
+    <div style="position: absolute; bottom: 2%; right: -8%; width: 420px; height: 420px; border-radius: 50%; background: radial-gradient(circle, rgba(18,222,255,0.35), transparent 65%); filter: blur(60px); animation: floaty2 20s ease-in-out infinite;"></div>
+  </div>
+
+  <!-- NAV -->
+  <nav style="position: fixed; top: 0; left: 0; right: 0; z-index: 50; backdrop-filter: blur(14px); background: rgba(2,9,33,0.6); border-bottom: 1px solid rgba(18,222,255,0.10);">
+    <div style="display: flex; align-items: center; justify-content: space-between; padding: 16px clamp(20px, 6vw, 80px);">
+      <a href="#home" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: #eaf0ff;">
+        <span style="display: grid; place-items: center; width: 38px; height: 38px; border-radius: 11px; background: linear-gradient(135deg, #0B51FF, #12DEFF); font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: #020921; font-size: 14px; box-shadow: 0 0 20px rgba(18,222,255,0.45);">LG</span>
+        <span style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; letter-spacing: 0.5px;">Luis G.</span>
+      </a>
+
+      <div style="display: flex; align-items: center; gap: clamp(14px, 2.2vw, 30px);">
+        <div id="desktop-nav" style="display: flex; align-items: center; gap: clamp(14px, 2.2vw, 30px);">
+          <a href="#home" class="nav-link" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #9fb0d8; text-decoration: none; letter-spacing: 0.3px;" data-es="01. Inicio" data-en="01. Home">01. Inicio</a>
+          <a href="#about" class="nav-link" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #9fb0d8; text-decoration: none; letter-spacing: 0.3px;" data-es="02. Sobre mí" data-en="02. About">02. Sobre mí</a>
+          <a href="#projects" class="nav-link" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #9fb0d8; text-decoration: none; letter-spacing: 0.3px;" data-es="03. Proyectos" data-en="03. Projects">03. Proyectos</a>
+          <a href="#skills" class="nav-link" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #9fb0d8; text-decoration: none; letter-spacing: 0.3px;" data-es="04. Skills" data-en="04. Skills">04. Skills</a>
+          <a href="#experience" class="nav-link" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #9fb0d8; text-decoration: none; letter-spacing: 0.3px;" data-es="05. Experiencia" data-en="05. Experience">05. Experiencia</a>
+          <a href="#contact" class="nav-link" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #9fb0d8; text-decoration: none; letter-spacing: 0.3px;" data-es="06. Contacto" data-en="06. Contact">06. Contacto</a>
+        </div>
+
+        <!-- Language toggle -->
+        <div style="display: flex; align-items: center; padding: 4px; border-radius: 100px; border: 1px solid rgba(18,222,255,0.2); background: rgba(255,255,255,0.02); font-family: 'JetBrains Mono', monospace; font-size: 12px;">
+          <button id="btn-es" onclick="setLang('es')" style="padding: 6px 14px; border-radius: 100px; border: none; cursor: pointer; font-family: 'JetBrains Mono', monospace; font-size: 12px; background: linear-gradient(135deg, #0B51FF, #12DEFF); color: #020921; font-weight: 600; transition: all 0.2s;">ES</button>
+          <button id="btn-en" onclick="setLang('en')" style="padding: 6px 14px; border-radius: 100px; border: none; cursor: pointer; font-family: 'JetBrains Mono', monospace; font-size: 12px; background: transparent; color: #9fb0d8; transition: all 0.2s;">EN</button>
+        </div>
+
+        <!-- Hamburger (mobile) -->
+        <button id="menu-btn" onclick="toggleMenu()" aria-label="Menu" style="display: none; padding: 10px; background: transparent; border: 1px solid rgba(18,222,255,0.2); border-radius: 10px; cursor: pointer; flex-direction: column; gap: 5px;">
+          <span style="width: 20px; height: 2px; background: #12DEFF; border-radius: 2px; display: block;"></span>
+          <span style="width: 20px; height: 2px; background: #12DEFF; border-radius: 2px; display: block;"></span>
+          <span style="width: 20px; height: 2px; background: #12DEFF; border-radius: 2px; display: block;"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile dropdown -->
+    <div id="mobile-menu" style="display: none; flex-direction: column; padding: 8px clamp(20px, 6vw, 80px) 20px; border-top: 1px solid rgba(18,222,255,0.08);">
+      <a href="#home" onclick="closeMenu()" style="padding: 13px 4px; font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #c7d4f5; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.05);" data-es="01. Inicio" data-en="01. Home">01. Inicio</a>
+      <a href="#about" onclick="closeMenu()" style="padding: 13px 4px; font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #c7d4f5; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.05);" data-es="02. Sobre mí" data-en="02. About">02. Sobre mí</a>
+      <a href="#projects" onclick="closeMenu()" style="padding: 13px 4px; font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #c7d4f5; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.05);" data-es="03. Proyectos" data-en="03. Projects">03. Proyectos</a>
+      <a href="#skills" onclick="closeMenu()" style="padding: 13px 4px; font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #c7d4f5; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.05);" data-es="04. Skills" data-en="04. Skills">04. Skills</a>
+      <a href="#experience" onclick="closeMenu()" style="padding: 13px 4px; font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #c7d4f5; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.05);" data-es="05. Experiencia" data-en="05. Experience">05. Experiencia</a>
+      <a href="#contact" onclick="closeMenu()" style="padding: 13px 4px; font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #c7d4f5; text-decoration: none;" data-es="06. Contacto" data-en="06. Contact">06. Contacto</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="home" style="position: relative; z-index: 1; min-height: 100vh; display: flex; align-items: center; padding: 120px clamp(20px, 6vw, 80px) 80px; gap: clamp(30px, 6vw, 90px); flex-wrap: wrap;">
+    <div style="flex: 1 1 460px; max-width: 660px;">
+      <div data-reveal style="display: inline-flex; align-items: center; gap: 8px; padding: 7px 16px; border-radius: 100px; border: 1px solid rgba(85,255,158,0.3); background: rgba(85,255,158,0.06); font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #55FF9E; margin-bottom: 26px;">
+        <span style="width: 7px; height: 7px; border-radius: 50%; background: #55FF9E; box-shadow: 0 0 10px #55FF9E; flex-shrink: 0;"></span>
+        <span data-es="Disponible para nuevos proyectos" data-en="Available for new projects">Disponible para nuevos proyectos</span>
+      </div>
+      <p data-reveal style="font-family: 'JetBrains Mono', monospace; color: #12DEFF; font-size: 15px; margin: 0 0 10px;">
+        <span data-es="Hola, soy" data-en="Hi, I'm">Hola, soy</span>
+      </p>
+      <h1 data-reveal style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(44px, 7vw, 82px); line-height: 1.02; margin: 0 0 18px; letter-spacing: -1.5px;">
+        Luis Gustavo<br>
+        <span style="background: linear-gradient(110deg, #0B51FF, #12DEFF, #55FF9E, #12DEFF); background-size: 250% auto; -webkit-background-clip: text; background-clip: text; color: transparent; animation: gradshift 6s ease-in-out infinite;">Cruz Rosales</span>
+      </h1>
+      <div data-reveal style="display: flex; align-items: center; gap: 12px; font-family: 'Space Grotesk', sans-serif; font-size: clamp(20px, 3vw, 28px); color: #c7d4f5; margin-bottom: 26px;">
+        <span style="width: 36px; height: 2px; background: linear-gradient(90deg, #12DEFF, transparent); flex-shrink: 0;"></span>
+        Full Stack Developer<span style="color: #12DEFF; animation: blink 1.1s step-end infinite;">_</span>
+      </div>
+      <p data-reveal style="font-size: 17px; line-height: 1.7; color: #9fb0d8; max-width: 520px; margin: 0 0 36px;"
+         data-es="Desarrollador full stack con más de 3 años construyendo aplicaciones web y móviles rápidas, accesibles y bien diseñadas."
+         data-en="Full stack developer with 3+ years building fast, accessible and well-designed web and mobile applications.">
+        Desarrollador full stack con más de 3 años construyendo aplicaciones web y móviles rápidas, accesibles y bien diseñadas.
+      </p>
+      <div data-reveal style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">
+        <a id="cv-link" href={cvEs} data-cv-es={cvEs} data-cv-en={cvEn} download target="_blank" class="cta-hover" style="display: inline-flex; align-items: center; gap: 9px; padding: 14px 26px; border-radius: 12px; background: linear-gradient(135deg, #0B51FF, #12DEFF); color: #020921; font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 15px; text-decoration: none; box-shadow: 0 8px 30px rgba(18,222,255,0.35);">
+          <span data-es="Descargar CV" data-en="Download CV">Descargar CV</span> →
+        </a>
+        <div style="display: flex; gap: 10px;">
+          <a href="https://github.com/LuisG28" target="_blank" title="GitHub" class="social-hover" style="display: grid; place-items: center; width: 48px; height: 48px; border-radius: 12px; border: 1px solid rgba(18,222,255,0.2); background: rgba(255,255,255,0.02); color: #c7d4f5; text-decoration: none; font-family: 'JetBrains Mono', monospace; font-size: 12px;">GH</a>
+          <a href="https://www.linkedin.com/in/luis-gustavo-cruz-rosales-1383351a1/" target="_blank" title="LinkedIn" class="social-hover" style="display: grid; place-items: center; width: 48px; height: 48px; border-radius: 12px; border: 1px solid rgba(18,222,255,0.2); background: rgba(255,255,255,0.02); color: #c7d4f5; text-decoration: none; font-family: 'JetBrains Mono', monospace; font-size: 12px;">in</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Avatar -->
+    <div data-reveal style="flex: 0 1 360px; display: grid; place-items: center; position: relative; min-width: 280px;">
+      <div style="position: absolute; width: 320px; height: 320px; border-radius: 50%; border: 1px solid rgba(18,222,255,0.4); animation: pulsering 3.5s ease-out infinite;"></div>
+      <div style="position: absolute; width: 320px; height: 320px; border-radius: 50%; border: 1px solid rgba(85,255,158,0.3); animation: pulsering 3.5s ease-out infinite 1.2s;"></div>
+      <div style="position: relative; width: clamp(240px, 30vw, 320px); height: clamp(240px, 30vw, 320px); border-radius: 50%; box-shadow: 0 0 60px rgba(11,81,255,0.45);">
+        <div style="position: absolute; inset: 0; border-radius: 50%; background: conic-gradient(from 0deg, #0B51FF, #12DEFF, #55FF9E, #0B51FF);"></div>
+        <div style="position: absolute; inset: 4px; border-radius: 50%; background: #020921; padding: 6px;">
+          <img src="https://luisg28.github.io/portfolio-v1/avatar.webp" alt="Luis Gustavo" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover; display: block;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" style="position: relative; z-index: 1; padding: 90px clamp(20px, 6vw, 80px); max-width: 1200px; margin: 0 auto;">
+    <div data-reveal style="font-family: 'JetBrains Mono', monospace; color: #12DEFF; font-size: 14px; margin-bottom: 12px;"
+         data-es="// sobre mí" data-en="// about me">// sobre mí</div>
+    <h2 data-reveal style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(32px, 5vw, 52px); margin: 0 0 40px; letter-spacing: -1px;"
+        data-es="Un poco sobre quién soy" data-en="A bit about who I am">Un poco sobre quién soy</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px;">
+      <div data-reveal class="card-hover" style="padding: 26px; border-radius: 18px; border: 1px solid rgba(18,222,255,0.12); background: linear-gradient(160deg, rgba(18,222,255,0.04), rgba(11,81,255,0.02));">
+        <div style="width: 32px; height: 3px; border-radius: 2px; background: linear-gradient(90deg, #12DEFF, #55FF9E); margin-bottom: 18px;"></div>
+        <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #b8c6ea;"
+           data-es="Más de 3 años trabajando como desarrollador full stack, del front al back."
+           data-en="Over 3 years working as a full stack developer, from front to back.">
+          Más de 3 años trabajando como desarrollador full stack, del front al back.
+        </p>
+      </div>
+      <div data-reveal class="card-hover" style="padding: 26px; border-radius: 18px; border: 1px solid rgba(18,222,255,0.12); background: linear-gradient(160deg, rgba(18,222,255,0.04), rgba(11,81,255,0.02));">
+        <div style="width: 32px; height: 3px; border-radius: 2px; background: linear-gradient(90deg, #12DEFF, #55FF9E); margin-bottom: 18px;"></div>
+        <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #b8c6ea;"
+           data-es="Egresado en Tecnologías de la Información y Comunicación por la UT de Xicotepec de Juárez."
+           data-en="Graduate in Information and Communication Technologies from UT of Xicotepec de Juárez.">
+          Egresado en Tecnologías de la Información y Comunicación por la UT de Xicotepec de Juárez.
+        </p>
+      </div>
+      <div data-reveal class="card-hover" style="padding: 26px; border-radius: 18px; border: 1px solid rgba(18,222,255,0.12); background: linear-gradient(160deg, rgba(18,222,255,0.04), rgba(11,81,255,0.02));">
+        <div style="width: 32px; height: 3px; border-radius: 2px; background: linear-gradient(90deg, #12DEFF, #55FF9E); margin-bottom: 18px;"></div>
+        <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #b8c6ea;"
+           data-es="Apasionado por el desarrollo de aplicaciones web y móviles con foco en la experiencia."
+           data-en="Passionate about building web and mobile applications with a focus on experience.">
+          Apasionado por el desarrollo de aplicaciones web y móviles con foco en la experiencia.
+        </p>
+      </div>
+      <div data-reveal class="card-hover" style="padding: 26px; border-radius: 18px; border: 1px solid rgba(18,222,255,0.12); background: linear-gradient(160deg, rgba(18,222,255,0.04), rgba(11,81,255,0.02));">
+        <div style="width: 32px; height: 3px; border-radius: 2px; background: linear-gradient(90deg, #12DEFF, #55FF9E); margin-bottom: 18px;"></div>
+        <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #b8c6ea;"
+           data-es="Disponible para proyectos remotos. Me adapto rápido a nuevos stacks y equipos."
+           data-en="Available for remote projects. I adapt quickly to new stacks and teams.">
+          Disponible para proyectos remotos. Me adapto rápido a nuevos stacks y equipos.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" style="position: relative; z-index: 1; padding: 90px clamp(20px, 6vw, 80px); max-width: 1200px; margin: 0 auto;">
+    <div data-reveal style="font-family: 'JetBrains Mono', monospace; color: #12DEFF; font-size: 14px; margin-bottom: 12px;"
+         data-es="// proyectos" data-en="// projects">// proyectos</div>
+    <h2 data-reveal style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(32px, 5vw, 52px); margin: 0 0 40px; letter-spacing: -1px;"
+        data-es="Trabajo y proyectos" data-en="Work &amp; projects">Trabajo y proyectos</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+      <!-- Featured project -->
+      <div data-reveal class="card-hover" style="display: flex; flex-direction: column; border-radius: 24px; overflow: hidden; border: 1px solid rgba(18,222,255,0.15); background: linear-gradient(160deg, rgba(11,81,255,0.06), rgba(2,9,33,0.4)); box-shadow: 0 24px 60px rgba(0,0,0,0.35);">
+        <div style="position: relative; height: 210px; overflow: hidden;">
+          <img src={portfolioPreview} alt="Portfolio preview" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+          <div style="position: absolute; inset: 0; background: linear-gradient(180deg, transparent 45%, rgba(2,9,33,0.75));"></div>
+          <span style="position: absolute; top: 14px; left: 14px; padding: 5px 12px; border-radius: 100px; background: rgba(2,9,33,0.7); backdrop-filter: blur(6px); font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #55FF9E; letter-spacing: 0.5px;"
+                data-es="PROYECTO DESTACADO" data-en="FEATURED PROJECT">PROYECTO DESTACADO</span>
+        </div>
+        <div style="padding: 28px; display: flex; flex-direction: column; flex: 1;">
+          <h3 style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 24px; margin: 0 0 12px;">Portfolio personal</h3>
+          <p style="font-size: 15px; line-height: 1.7; color: #9fb0d8; margin: 0 0 20px; flex: 1;"
+             data-es="Sitio creado para mostrar mi experiencia en el mundo del desarrollo, usando distintas tecnologías para construir aplicaciones web y móviles."
+             data-en="A site built to showcase my experience in development, using different technologies to build web and mobile applications.">
+            Sitio creado para mostrar mi experiencia en el mundo del desarrollo, usando distintas tecnologías para construir aplicaciones web y móviles.
+          </p>
+          <div style="display: flex; gap: 9px; flex-wrap: wrap; margin-bottom: 22px;">
+            <span style="padding: 7px 14px; border-radius: 100px; background: rgba(18,222,255,0.08); border: 1px solid rgba(18,222,255,0.2); font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #12DEFF;">Astro.js</span>
+            <span style="padding: 7px 14px; border-radius: 100px; background: rgba(18,222,255,0.08); border: 1px solid rgba(18,222,255,0.2); font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #12DEFF;">Tailwind CSS</span>
+          </div>
+          <a href="https://github.com/LuisG28/portfolio-v1" target="_blank" class="repo-hover" style="display: inline-flex; align-items: center; gap: 8px; align-self: flex-start; padding: 11px 20px; border-radius: 11px; border: 1px solid rgba(85,255,158,0.4); color: #55FF9E; font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 14px; text-decoration: none;">
+            <span data-es="Ver repositorio" data-en="View repository">Ver repositorio</span> →
+          </a>
+        </div>
+      </div>
+
+      <!-- GitHub CTA card -->
+      <div data-reveal class="card-hover" style="display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 16px; border-radius: 24px; border: 1px dashed rgba(18,222,255,0.28); background: rgba(255,255,255,0.015); padding: clamp(28px, 4vw, 44px);">
+        <h3 style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 24px; margin: 0;"
+            data-es="¿Quieres ver más?" data-en="Want to see more?">¿Quieres ver más?</h3>
+        <p style="font-size: 15px; line-height: 1.7; color: #9fb0d8; margin: 0;"
+           data-es="Tengo más proyectos y experimentos en mi GitHub. Échales un vistazo y conoce mi código."
+           data-en="I have more projects and experiments on my GitHub. Take a look and explore my code.">
+          Tengo más proyectos y experimentos en mi GitHub. Échales un vistazo y conoce mi código.
+        </p>
+        <a href="https://github.com/LuisG28" target="_blank" class="cta-hover" style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 22px; border-radius: 11px; background: linear-gradient(135deg, #0B51FF, #12DEFF); color: #020921; font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 14px; text-decoration: none; box-shadow: 0 8px 26px rgba(18,222,255,0.3);">
+          <span data-es="Explorar mi GitHub" data-en="Explore my GitHub">Explorar mi GitHub</span> →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" style="position: relative; z-index: 1; padding: 90px clamp(20px, 6vw, 80px); max-width: 1200px; margin: 0 auto;">
+    <div data-reveal style="font-family: 'JetBrains Mono', monospace; color: #12DEFF; font-size: 14px; margin-bottom: 12px;"
+         data-es="// skills" data-en="// skills">// skills</div>
+    <h2 data-reveal style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(32px, 5vw, 52px); margin: 0 0 8px; letter-spacing: -1px;"
+        data-es="Tecnologías y habilidades" data-en="Technologies &amp; skills">Tecnologías y habilidades</h2>
+    <p data-reveal style="color: #9fb0d8; font-size: 16px; margin: 0 0 36px;"
+       data-es="El stack con el que trabajo día a día." data-en="The stack I work with every day.">El stack con el que trabajo día a día.</p>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; margin-bottom: 48px;">
+      <div data-reveal class="skill-hover" style="display: flex; align-items: center; gap: 12px; padding: 15px 18px; border-radius: 14px; border: 1px solid rgba(18,222,255,0.14); background: rgba(255,255,255,0.02);">
+        <img src="https://cdn.simpleicons.org/react/12DEFF" alt="" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;">
+        <span style="font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 15px; color: #dde7ff;">React.js</span>
+      </div>
+      <div data-reveal class="skill-hover" style="display: flex; align-items: center; gap: 12px; padding: 15px 18px; border-radius: 14px; border: 1px solid rgba(18,222,255,0.14); background: rgba(255,255,255,0.02);">
+        <img src="https://cdn.simpleicons.org/react/55FF9E" alt="" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;">
+        <span style="font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 15px; color: #dde7ff;">React Native</span>
+      </div>
+      <div data-reveal class="skill-hover" style="display: flex; align-items: center; gap: 12px; padding: 15px 18px; border-radius: 14px; border: 1px solid rgba(18,222,255,0.14); background: rgba(255,255,255,0.02);">
+        <img src="https://cdn.simpleicons.org/javascript/F7DF1E" alt="" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;">
+        <span style="font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 15px; color: #dde7ff;">JavaScript</span>
+      </div>
+      <div data-reveal class="skill-hover" style="display: flex; align-items: center; gap: 12px; padding: 15px 18px; border-radius: 14px; border: 1px solid rgba(18,222,255,0.14); background: rgba(255,255,255,0.02);">
+        <img src="https://cdn.simpleicons.org/typescript/3178C6" alt="" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;">
+        <span style="font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 15px; color: #dde7ff;">TypeScript</span>
+      </div>
+      <div data-reveal class="skill-hover" style="display: flex; align-items: center; gap: 12px; padding: 15px 18px; border-radius: 14px; border: 1px solid rgba(18,222,255,0.14); background: rgba(255,255,255,0.02);">
+        <img src="https://cdn.simpleicons.org/astro/FF5D01" alt="" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;">
+        <span style="font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 15px; color: #dde7ff;">Astro</span>
+      </div>
+      <div data-reveal class="skill-hover" style="display: flex; align-items: center; gap: 12px; padding: 15px 18px; border-radius: 14px; border: 1px solid rgba(18,222,255,0.14); background: rgba(255,255,255,0.02);">
+        <img src="https://cdn.simpleicons.org/tailwindcss/12DEFF" alt="" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;">
+        <span style="font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 15px; color: #dde7ff;">Tailwind CSS</span>
+      </div>
+      <div data-reveal class="skill-hover" style="display: flex; align-items: center; gap: 12px; padding: 15px 18px; border-radius: 14px; border: 1px solid rgba(18,222,255,0.14); background: rgba(255,255,255,0.02);">
+        <img src="https://cdn.simpleicons.org/nodedotjs/55FF9E" alt="" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;">
+        <span style="font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 15px; color: #dde7ff;">Node.js</span>
+      </div>
+      <div data-reveal class="skill-hover" style="display: flex; align-items: center; gap: 12px; padding: 15px 18px; border-radius: 14px; border: 1px solid rgba(18,222,255,0.14); background: rgba(255,255,255,0.02);">
+        <img src="https://cdn.simpleicons.org/postgresql/4F9BD9" alt="" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;">
+        <span style="font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 15px; color: #dde7ff;">PostgreSQL</span>
+      </div>
+    </div>
+
+    <p data-reveal style="font-family: 'JetBrains Mono', monospace; color: #55FF9E; font-size: 13px; margin: 0 0 18px;"
+       data-es="// otras tecnologías con las que he trabajado" data-en="// other technologies I have worked with">
+      // otras tecnologías con las que he trabajado
+    </p>
+    <div data-reveal style="display: flex; flex-wrap: wrap; gap: 10px;">
+      <span style="padding: 9px 16px; border-radius: 100px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #9fb0d8;">ASP.NET</span>
+      <span style="padding: 9px 16px; border-radius: 100px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #9fb0d8;">AngularJS</span>
+      <span style="padding: 9px 16px; border-radius: 100px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #9fb0d8;">Bootstrap</span>
+      <span style="padding: 9px 16px; border-radius: 100px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #9fb0d8;">Styled Components</span>
+      <span style="padding: 9px 16px; border-radius: 100px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #9fb0d8;">Feathers.js</span>
+      <span style="padding: 9px 16px; border-radius: 100px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #9fb0d8;">Postman</span>
+      <span style="padding: 9px 16px; border-radius: 100px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #9fb0d8;">Ajax</span>
+      <span style="padding: 9px 16px; border-radius: 100px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #9fb0d8;">Git</span>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" style="position: relative; z-index: 1; padding: 90px clamp(20px, 6vw, 80px); max-width: 1000px; margin: 0 auto;">
+    <div data-reveal style="font-family: 'JetBrains Mono', monospace; color: #12DEFF; font-size: 14px; margin-bottom: 12px;"
+         data-es="// trayectoria" data-en="// career">// trayectoria</div>
+    <h2 data-reveal style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(32px, 5vw, 52px); margin: 0 0 48px; letter-spacing: -1px;"
+        data-es="Experiencia laboral" data-en="Work experience">Experiencia laboral</h2>
+
+    <div id="timeline" style="position: relative; padding-left: 36px;">
+      <div id="tl-line" style="position: absolute; left: 9px; top: 6px; bottom: 6px; width: 2px; background: linear-gradient(180deg, #0B51FF, #12DEFF, #55FF9E); transform: scaleY(0); transform-origin: top;"></div>
+
+      <!-- Job 1 -->
+      <div data-reveal style="position: relative; padding-bottom: 40px;">
+        <span class="tl-dot" style="position: absolute; left: -33px; top: 4px; width: 18px; height: 18px; border-radius: 50%; background: #020921; border: 3px solid #12DEFF; box-shadow: 0 0 14px rgba(18,222,255,0.6); transform: scale(0);">
+          <span style="position: absolute; inset: -3px; border-radius: 50%; border: 2px solid #12DEFF; animation: dotring 2.6s ease-out infinite;"></span>
+        </span>
+        <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px; margin-bottom: 8px;">
+          <h3 style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 20px; margin: 0; color: #eaf0ff;">
+            Full Stack Developer <span style="color: #12DEFF;">· TRIPLEI</span>
+          </h3>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #6f80a8; white-space: nowrap;"
+                data-es="Oct 2022 — Presente" data-en="Oct 2022 — Present">Oct 2022 — Presente</span>
+        </div>
+        <p style="margin: 0 0 12px; font-size: 14.5px; line-height: 1.65; color: #9fb0d8; max-width: 720px;"
+           data-es="Desarrollo de funcionalidades en aplicaciones web con React.js, JavaScript y Bootstrap, además de herramientas como Postman y Styled Components."
+           data-en="Development of features in web applications using React.js, JavaScript and Bootstrap, plus tools like Postman and Styled Components.">
+          Desarrollo de funcionalidades en aplicaciones web con React.js, JavaScript y Bootstrap, además de herramientas como Postman y Styled Components.
+        </p>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px;">
+          <span style="padding: 5px 12px; border-radius: 100px; background: rgba(18,222,255,0.07); border: 1px solid rgba(18,222,255,0.18); font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #9fd6ff;">React.js</span>
+          <span style="padding: 5px 12px; border-radius: 100px; background: rgba(18,222,255,0.07); border: 1px solid rgba(18,222,255,0.18); font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #9fd6ff;">JavaScript</span>
+          <span style="padding: 5px 12px; border-radius: 100px; background: rgba(18,222,255,0.07); border: 1px solid rgba(18,222,255,0.18); font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #9fd6ff;">Bootstrap</span>
+          <span style="padding: 5px 12px; border-radius: 100px; background: rgba(18,222,255,0.07); border: 1px solid rgba(18,222,255,0.18); font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #9fd6ff;">Styled Components</span>
+          <span style="padding: 5px 12px; border-radius: 100px; background: rgba(18,222,255,0.07); border: 1px solid rgba(18,222,255,0.18); font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #9fd6ff;">Postman</span>
+        </div>
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #55FF9E;"
+              data-es="1 año y 8 meses" data-en="1 year and 8 months">1 año y 8 meses</span>
+      </div>
+
+      <!-- Job 2 -->
+      <div data-reveal style="position: relative; padding-bottom: 40px;">
+        <span class="tl-dot" style="position: absolute; left: -33px; top: 4px; width: 18px; height: 18px; border-radius: 50%; background: #020921; border: 3px solid #12DEFF; box-shadow: 0 0 14px rgba(18,222,255,0.6); transform: scale(0);">
+          <span style="position: absolute; inset: -3px; border-radius: 50%; border: 2px solid #12DEFF; animation: dotring 2.6s ease-out infinite;"></span>
+        </span>
+        <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px; margin-bottom: 8px;">
+          <h3 style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 20px; margin: 0; color: #eaf0ff;">
+            <span data-es="Dev Web y Móvil" data-en="Web &amp; Mobile Developer">Dev Web y Móvil</span>
+            <span style="color: #12DEFF;"> · Hybrido Studio</span>
+          </h3>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #6f80a8; white-space: nowrap;"
+                data-es="Sep 2020 — Abr 2023" data-en="Sep 2020 — Apr 2023">Sep 2020 — Abr 2023</span>
+        </div>
+        <p style="margin: 0 0 12px; font-size: 14.5px; line-height: 1.65; color: #9fb0d8; max-width: 720px;"
+           data-es="Desarrollo de aplicaciones web y móviles para gestión de clientes y reportes usando React.js, React Native, Feathers.js y PostgreSQL."
+           data-en="Development of web and mobile apps for client management and reporting using React.js, React Native, Feathers.js and PostgreSQL.">
+          Desarrollo de aplicaciones web y móviles para gestión de clientes y reportes usando React.js, React Native, Feathers.js y PostgreSQL.
+        </p>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px;">
+          <span style="padding: 5px 12px; border-radius: 100px; background: rgba(18,222,255,0.07); border: 1px solid rgba(18,222,255,0.18); font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #9fd6ff;">React.js</span>
+          <span style="padding: 5px 12px; border-radius: 100px; background: rgba(18,222,255,0.07); border: 1px solid rgba(18,222,255,0.18); font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #9fd6ff;">React Native</span>
+          <span style="padding: 5px 12px; border-radius: 100px; background: rgba(18,222,255,0.07); border: 1px solid rgba(18,222,255,0.18); font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #9fd6ff;">Feathers.js</span>
+          <span style="padding: 5px 12px; border-radius: 100px; background: rgba(18,222,255,0.07); border: 1px solid rgba(18,222,255,0.18); font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #9fd6ff;">PostgreSQL</span>
+        </div>
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #55FF9E;"
+              data-es="2 años y 8 meses" data-en="2 years and 8 months">2 años y 8 meses</span>
+      </div>
+
+      <!-- Job 3 -->
+      <div data-reveal style="position: relative; padding-bottom: 40px;">
+        <span class="tl-dot" style="position: absolute; left: -33px; top: 4px; width: 18px; height: 18px; border-radius: 50%; background: #020921; border: 3px solid #12DEFF; box-shadow: 0 0 14px rgba(18,222,255,0.6); transform: scale(0);">
+          <span style="position: absolute; inset: -3px; border-radius: 50%; border: 2px solid #12DEFF; animation: dotring 2.6s ease-out infinite;"></span>
+        </span>
+        <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px; margin-bottom: 8px;">
+          <h3 style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 20px; margin: 0; color: #eaf0ff;">
+            Web Developer <span style="color: #12DEFF;">· SW Plus</span>
+          </h3>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #6f80a8; white-space: nowrap;"
+                data-es="May 2019 — Dic 2019" data-en="May 2019 — Dec 2019">May 2019 — Dic 2019</span>
+        </div>
+        <p style="margin: 0 0 12px; font-size: 14.5px; line-height: 1.65; color: #9fb0d8; max-width: 720px;"
+           data-es="Desarrollo de funcionalidades como gestión de usuarios y clientes, creación de reportes y resolución de incidencias con ASP.NET, JavaScript, Ajax y AngularJS."
+           data-en="Development of features such as user and client management, report creation and issue resolution using ASP.NET, JavaScript, Ajax and AngularJS.">
+          Desarrollo de funcionalidades como gestión de usuarios y clientes, creación de reportes y resolución de incidencias con ASP.NET, JavaScript, Ajax y AngularJS.
+        </p>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px;">
+          <span style="padding: 5px 12px; border-radius: 100px; background: rgba(18,222,255,0.07); border: 1px solid rgba(18,222,255,0.18); font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #9fd6ff;">ASP.NET</span>
+          <span style="padding: 5px 12px; border-radius: 100px; background: rgba(18,222,255,0.07); border: 1px solid rgba(18,222,255,0.18); font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #9fd6ff;">JavaScript</span>
+          <span style="padding: 5px 12px; border-radius: 100px; background: rgba(18,222,255,0.07); border: 1px solid rgba(18,222,255,0.18); font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #9fd6ff;">Ajax</span>
+          <span style="padding: 5px 12px; border-radius: 100px; background: rgba(18,222,255,0.07); border: 1px solid rgba(18,222,255,0.18); font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #9fd6ff;">AngularJS</span>
+        </div>
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #55FF9E;"
+              data-es="8 meses" data-en="8 months">8 meses</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" style="position: relative; z-index: 1; padding: 100px clamp(20px, 6vw, 80px) 60px; max-width: 900px; margin: 0 auto; text-align: center;">
+    <div data-reveal style="position: relative; padding: clamp(40px, 6vw, 70px) clamp(24px, 5vw, 60px); border-radius: 28px; border: 1px solid rgba(18,222,255,0.2); background: radial-gradient(ellipse 100% 100% at 50% 0%, rgba(11,81,255,0.16), rgba(2,9,33,0.3)); overflow: hidden;">
+      <div style="position: absolute; top: -60px; left: 50%; transform: translateX(-50%); width: 300px; height: 200px; background: radial-gradient(circle, rgba(18,222,255,0.35), transparent 70%); filter: blur(40px); pointer-events: none;"></div>
+      <div style="position: relative;">
+        <div style="font-family: 'JetBrains Mono', monospace; color: #12DEFF; font-size: 14px; margin-bottom: 14px;"
+             data-es="// contacto" data-en="// contact">// contacto</div>
+        <h2 style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(34px, 5.5vw, 56px); margin: 0 0 16px; letter-spacing: -1px;"
+            data-es="¡Hablemos!" data-en="Let's chat!">¡Hablemos!</h2>
+        <p style="color: #9fb0d8; font-size: 17px; line-height: 1.6; margin: 0 auto 34px; max-width: 480px;"
+           data-es="¿Tienes un proyecto en mente o quieres saber más sobre mi trabajo? Escríbeme y respondo pronto."
+           data-en="Have a project in mind or want to know more about my work? Drop me a line and I'll reply soon.">
+          ¿Tienes un proyecto en mente o quieres saber más sobre mi trabajo? Escríbeme y respondo pronto.
+        </p>
+        <a href="mailto:luis.gustavo.contact@gmail.com?subject=Looking%20for%20Information&body=Hello,%20I%20would%20like%20more%20information." class="cta-hover" style="display: inline-flex; align-items: center; gap: 10px; padding: 16px 32px; border-radius: 13px; background: linear-gradient(135deg, #0B51FF, #12DEFF); color: #020921; font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 16px; text-decoration: none; box-shadow: 0 10px 36px rgba(18,222,255,0.4);">
+          <span data-es="Enviar correo" data-en="Send email">Enviar correo</span> →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="position: relative; z-index: 1; padding: 30px clamp(20px, 6vw, 80px) 40px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px; border-top: 1px solid rgba(18,222,255,0.08);">
+    <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #6f80a8;">© 2026 Luis Gustavo Cruz Rosales</span>
+    <div style="display: flex; gap: 18px;">
+      <a href="https://github.com/LuisG28" target="_blank" class="nav-link" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #9fb0d8; text-decoration: none;">GitHub</a>
+      <a href="https://www.linkedin.com/in/luis-gustavo-cruz-rosales-1383351a1/" target="_blank" class="nav-link" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #9fb0d8; text-decoration: none;">LinkedIn</a>
+    </div>
+  </footer>
+
+</div>
+
+<script is:inline>
+  let currentLang = 'es';
+  let menuOpen = false;
+
+  function setLang(lang) {
+    currentLang = lang;
+    document.querySelectorAll('[data-es][data-en]').forEach(el => {
+      el.textContent = el.dataset[lang];
+    });
+    const cvLink = document.getElementById('cv-link');
+    if (cvLink) cvLink.href = lang === 'en' ? cvLink.dataset.cvEn : cvLink.dataset.cvEs;
+    updateLangButtons();
+  }
+
+  function updateLangButtons() {
+    const active = 'padding: 6px 14px; border-radius: 100px; border: none; cursor: pointer; font-family: JetBrains Mono, monospace; font-size: 12px; background: linear-gradient(135deg, #0B51FF, #12DEFF); color: #020921; font-weight: 600; transition: all 0.2s;';
+    const inactive = 'padding: 6px 14px; border-radius: 100px; border: none; cursor: pointer; font-family: JetBrains Mono, monospace; font-size: 12px; background: transparent; color: #9fb0d8; transition: all 0.2s;';
+    document.getElementById('btn-es').style.cssText = currentLang === 'es' ? active : inactive;
+    document.getElementById('btn-en').style.cssText = currentLang === 'en' ? active : inactive;
+  }
+
+  function toggleMenu() {
+    menuOpen = !menuOpen;
+    const menu = document.getElementById('mobile-menu');
+    menu.style.display = menuOpen ? 'flex' : 'none';
+  }
+
+  function closeMenu() {
+    menuOpen = false;
+    document.getElementById('mobile-menu').style.display = 'none';
+  }
+
+  // Responsive: hamburger vs desktop nav
+  const mql = window.matchMedia('(max-width: 760px)');
+  function onMQ(e) {
+    const btn = document.getElementById('menu-btn');
+    const nav = document.getElementById('desktop-nav');
+    if (e.matches) {
+      btn.style.display = 'flex';
+      nav.style.display = 'none';
+    } else {
+      btn.style.display = 'none';
+      nav.style.display = 'flex';
+      closeMenu();
+    }
+  }
+  if (mql.addEventListener) mql.addEventListener('change', onMQ);
+  else mql.addListener(onMQ);
+  onMQ(mql);
+
+  // Scroll reveal
+  function reveal(el) {
+    el.classList.add('revealed');
+    el.style.transitionDelay = '';
+  }
+
+  function setupReveal() {
+    const vh = window.innerHeight || 800;
+    document.querySelectorAll('[data-reveal]').forEach((el, i) => {
+      if (el.dataset.revealReady) return;
+      el.dataset.revealReady = '1';
+      el.style.transitionDelay = ((i % 6) * 0.07) + 's';
+      if (el.getBoundingClientRect().top < vh * 0.95) {
+        requestAnimationFrame(() => reveal(el));
+      }
+    });
+  }
+
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) reveal(e.target); });
+  }, { threshold: 0.12 });
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('[data-reveal]').forEach(el => revealObs.observe(el));
+    setupReveal();
+
+    // Fallback: reveal all after 1.2s
+    setTimeout(() => {
+      document.querySelectorAll('[data-reveal]').forEach(el => reveal(el));
+    }, 1200);
+
+    setupTimeline();
+  });
+
+  window.addEventListener('scroll', () => {
+    const vh = window.innerHeight || 800;
+    document.querySelectorAll('[data-reveal]').forEach(el => {
+      if (!el.classList.contains('revealed') && el.getBoundingClientRect().top < vh * 0.9) {
+        reveal(el);
+      }
+    });
+  }, { passive: true });
+
+  // Timeline animation
+  function setupTimeline() {
+    const timeline = document.getElementById('timeline');
+    if (!timeline) return;
+    const tlObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const line = document.getElementById('tl-line');
+        if (line) line.style.animation = 'drawline 1s cubic-bezier(.2,.7,.2,1) forwards';
+        document.querySelectorAll('.tl-dot').forEach((dot, i) => {
+          dot.style.animation = 'dotpop 0.5s cubic-bezier(.2,1.4,.4,1) forwards';
+          dot.style.animationDelay = (0.25 + i * 0.22) + 's';
+        });
+        tlObs.disconnect();
+      });
+    }, { threshold: 0.25 });
+    tlObs.observe(timeline);
+  }
+</script>
+</body>
+</html>
